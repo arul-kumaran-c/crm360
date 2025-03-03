@@ -8,10 +8,10 @@ product_name VARCHAR(255) NOT NULL,
 category ENUM('solid', 'liquid', 'gas', 'ceramic', 'stationery', 'electronics', 'accessories', 'wearable', 'fashion', 'clothing', 'footwear', 'home appliance') NOT NULL,
 quantity DECIMAL(10,2) DEFAULT 0 NOT NULL,
 price DECIMAL(10,2) DEFAULT 0 NOT NULL,
-sku VARCHAR NOT NULL,
+sku VARCHAR(255) NOT NULL,
 mfg_date DATE NOT NULL,
 exp_date DATE NOT NULL,
-about_product text,
+about_product TEXT
 );
 
 -- INSERT DATA
@@ -49,3 +49,52 @@ WHERE id = 1;
 
 -- DELETE
 DELETE FROM products WHERE id = 1;
+
+
+-- RETRIVE ALL DATAS
+SELECT * FROM products;
+
+-- Get products that are available in stock.
+SELECT * FROM products WHERE quantity > 0;
+
+-- Find products with a price greater than 5000.
+SELECT * FROM products WHERE price > 5000;
+
+-- Retrieve products that belong to a specific category.
+
+SELECT * FROM products WHERE category = ?;
+
+-- Get the latest added products ordered by creation date.
+SELECT * FROM products ORDER BY creation_date DESC;
+
+-- UPDATE the price of a product based on SKU. 
+UPDATE products 
+SET price = 220
+WHERE sku = BTL01;
+
+-- Mark a product as unavailable if stock is 0.
+UPDATE products 
+SET status = 'unavailable' 
+WHERE quantity = 0;
+
+-- Apply a 10% discount on all Electronics category products.
+PDATE products 
+SET price = price * 0.90 
+WHERE sku = 'BTS01';
+
+-- Count the total number of available products.
+SELECT COUNT(*) AS total_available_products 
+FROM products 
+WHERE quantity > 0;
+
+-- Find the most expensive product
+SELECT * 
+FROM products 
+ORDER BY price DESC 
+LIMIT 1;
+
+-- Get the average price of all products in each category.
+SELECT category, AVG(price) AS average_price 
+FROM products 
+GROUP BY category;
+
