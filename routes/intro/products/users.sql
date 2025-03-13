@@ -7,9 +7,9 @@
 
 -- insert datas
 INSERT INTO users (name, email, password, phone, address) VALUES
-('Ram', 'ram@gmail.com', 'password123', '9876543210', '12 Main Street, covai, Tamilnadu'),
-('Arun', 'arun@gmail.com', 'password123', '9988776655', '12th Street, ganthipuram, covai, Tamilnadu'),
-('Raju', 'raju@gmail.com', 'password123', '9845900210', 'Main Street, ukkadam, covai, Tamilnadu');
+('Ram', 'ram@gmail.com', 'password123', '9876543210', '12 Main Street, covai, Tamilnadu.'),
+('Arun', 'arun@gmail.com', 'password123', '9988776655', '12th Street, ganthipuram, covai, Tamilnadu.'),
+('Raju', 'raju@gmail.com', 'password123', '9845900210', 'Main Street, ukkadam, covai, Tamilnadu.');
 
 -- update data
 UPDATE users
