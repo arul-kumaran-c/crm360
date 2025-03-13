@@ -78,7 +78,7 @@ SET status = 'unavailable'
 WHERE quantity = 0;
 
 -- Apply a 10% discount on all Electronics category products.
-PDATE products 
+UPDATE products 
 SET price = price * 0.90 
 WHERE sku = 'BTS01';
 
@@ -97,4 +97,3 @@ LIMIT 1;
 SELECT category, AVG(price) AS average_price 
 FROM products 
 GROUP BY category;
-
